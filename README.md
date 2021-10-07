@@ -18,6 +18,7 @@ This is the setup I used for this project:
 * 1 Kibana
 * 1 Elastic-HQ
 * 1 HPA component to auto scale our setup.
+We also used single elasticsearch node per kubernetes host for pod anti/affinity policy.
 
 ## Getting Started
 
@@ -27,6 +28,7 @@ This is the setup I used for this project:
     * Octavia
     * Cinder
 * Magnum, Raw K8S or OpenShift on top of OpenStack.
+* For local development you can use KinD or other local solutions.
 
 ### Installing
 
