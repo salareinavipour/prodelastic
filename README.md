@@ -50,7 +50,7 @@ Check each component status using:
 You can also check component logs to see if everything is running smoothly.
 
 ### To-Do
-* Use LetsEncrypt to secure intra component communications.
+* Implement PKI using letsencrypt & x.pack scurity module.
 * Add memory limit to avoid starving.
 
 ## Version History
