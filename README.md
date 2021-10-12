@@ -98,14 +98,20 @@ $ kubectl apply -f kibana.yaml
 When deploying with the HA architecture consider these things:
 
 * You can use `Zen`,`GCE`,`EC2` or `Azure classic` discovery instead of default built-in discovery, use the example I provided in `master-ha-configmap.yaml` to have a general idea about `Zen` ping unicast and also note that if you're using hostnames your cluster should support dns.
+
 * Set replica to 3 in `es-master.yaml`, 2 in `es-data.yaml` ,and 2 in `es-client`
+
 * Change Kibana service configs to use `LoadBalancer` instead of `NodePort`.
 
 * Deploy auto scaler for the clients:
 ```
 $ kubectl apply -f autoscaler.yaml
 ```
+
 * Use Let's Encrypt or other TLS providers supported by `cert-manager`.
+
+* Remove `MASTER_NODES` & `NODE_LIST` from all manifests and roll-out again
+
 ### Verfification
 
 Check all component are healthy using:
