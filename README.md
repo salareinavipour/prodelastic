@@ -120,7 +120,7 @@ $ kubectl get all -n es
 ```
 You can also check component logs to see if everything is running smoothly.
 
-If everything goes well you can see you kibana dashboard in [this address](https://localhost:32159/)
+If everything goes well you can see you kibana dashboard in [https://localhost:32159](https://localhost:32159/) .
 
 Note that if you used Minikube instead of KinD, use this command to see which url to go to:
 ```
