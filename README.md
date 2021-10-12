@@ -2,7 +2,7 @@
 
 This project is a template for running HA, Production-ready Elastic stack on K8S.
 
-### Architecture
+## Architecture
 
 #### Local Environment
 
@@ -23,8 +23,6 @@ This is the setup I used for the production:
 * 1 HPA component to auto scale our setup.
 We also used single elasticsearch node per kubernetes host for pod affinity policy.
 
-## Getting Started
-
 ### Pre-req
 
 * For local development|deployment you can use KinD or Minikube.
@@ -33,9 +31,9 @@ We also used single elasticsearch node per kubernetes host for pod affinity poli
 > kind create cluster --config config.yaml
 ```
 
-### Installing
+## Getting Started
 
-## Common steps between deploying for local & production
+### Common steps between deploying for local & production
 
 We begin by installing [cert-manager](https://cert-manager.io/):
 
@@ -93,7 +91,7 @@ It's time to deploy Kibana:
 ```
 $ kubectl apply -f kibana.yaml
 ```
-## Production environment considerations
+### Production environment considerations
 
 When deploying with the HA architecture consider these things:
 
