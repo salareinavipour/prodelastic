@@ -124,7 +124,10 @@ Note that if you used Minikube instead of KinD, use this command to see which ur
 ```
 $ minikube service --url kibana-svc -n es
 ```
-
+### Source
+This project is an adaption of [k8s-security-elasticsearch](https://github.com/C2-Labs/k8s-security-elasticsearch).
+Keep in mind that regarding the customization we made, we're focusing in making a production-ready, and in the further steps, automated elastic stack deployment.
+Therefore, I didn't fork it.
 ### To-Do
 
 * Add memory limit to avoid starving.
