@@ -1,2 +1,14 @@
 ---
-# vars file for elasticstack
+vars:
+  master:
+    configmap: /files/masters/configmap.yml
+    deployment: /files/masters/deployment.yml
+    service: /files/masters/service.yml
+  data:
+    configmap: /files/datas/configmap.yml
+    statefulset: /files/datas/statefulset.yml
+    service: /files/datas/service.yml
+  client:
+    configmap: /files/clients/configmap.yml
+    deployment: /files/clients/deployment.yml
+    service: /files/clients/service.yml
