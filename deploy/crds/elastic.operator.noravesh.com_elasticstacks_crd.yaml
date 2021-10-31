@@ -1,0 +1,22 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: elasticstacks.elastic.operator.noravesh.com
+spec:
+  group: elastic.operator.noravesh.com
+  names:
+    kind: ElasticStack
+    listKind: ElasticStackList
+    plural: elasticstacks
+    singular: elasticstack
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        type: object
+        x-kubernetes-preserve-unknown-fields: true
+    served: true
+    storage: true
+    subresources:
+      status: {}

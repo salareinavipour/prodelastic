@@ -1,0 +1,5 @@
+---
+- version: v1
+  group: elastic.operator.noravesh.com
+  kind: ElasticStack
+  playbook: /opt/ansible/playbooks/elastic_stack.yml

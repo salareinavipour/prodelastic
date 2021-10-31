@@ -1,0 +1,55 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: elastic
+  name: kibana
+  labels:
+    app: kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: docker.elastic.co/kibana/kibana:7.6.1
+        ports:
+        - containerPort: 5601
+          name: kibana-svc
+        env:
+        - name: ELASTICSEARCH_HOSTS
+          value: "https://es-client.elastic.svc.cluster.local:9200"
+        - name: ELASTICSEARCH_USER
+          value: "elastic"
+        - name: ELASTICSEARCH_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: es-pw-elastic
+              key: password
+        volumeMounts:
+        - name: config
+          mountPath: /usr/share/kibana/config/kibana.yml
+          readOnly: true
+          subPath: kibana.yml
+        - name: es-http-tls
+          mountPath: /usr/share/kibana/config/certs/es
+          readOnly: true
+        - name: kibana-certs
+          mountPath: /usr/share/kibana/config/certs/kibana
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: kibana-config
+      - name: es-http-tls
+        secret:
+          secretName: es-http-tls
+      - name: kibana-certs
+        secret:
+          secretName: kibana-tls

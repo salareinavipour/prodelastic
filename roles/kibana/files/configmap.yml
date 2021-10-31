@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: elastic
+  name: kibana-config
+  labels:
+    app: kibana
+data:
+  kibana.yml: |-
+    server.host: 0.0.0.0
+    server.ssl.enabled: true
+    server.ssl.certificate: /usr/share/kibana/config/certs/kibana/tls.crt
+    server.ssl.key: /usr/share/kibana/config/certs/kibana/tls.key
+    elasticsearch: 
+      hosts: ${ELASTICSEARCH_HOSTS}
+      username: ${ELASTICSEARCH_USER}
+      password: ${ELASTICSEARCH_PASSWORD}
+      ssl:
+        key: /usr/share/kibana/config/certs/es/tls.key
+        certificate: /usr/share/kibana/config/certs/es/tls.crt
+        certificateAuthorities: /usr/share/kibana/config/certs/es/ca.crt

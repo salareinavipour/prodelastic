@@ -1,0 +1,13 @@
+---
+- name: Create Kibana Configmap from file
+  k8s:
+    state: present
+    definition: "{{ lookup('file', '/files/configmap.yml') }}"
+- name: Create Kibana Deployment from file
+  k8s:
+    state: present
+    definition: "{{ lookup('file', '/files/deployment.yml') }}"
+- name: Create Kibana Service from file
+  k8s:
+    state: present
+    definition: "{{ lookup('file', '/files/service.yml') }}"

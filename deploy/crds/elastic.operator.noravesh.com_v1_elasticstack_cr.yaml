@@ -1,0 +1,7 @@
+apiVersion: elastic.operator.noravesh.com/v1
+kind: ElasticStack
+metadata:
+  name: example-elasticstack
+spec:
+  # Add fields here
+  size: 3
