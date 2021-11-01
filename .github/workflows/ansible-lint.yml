@@ -3,7 +3,7 @@ name: Ansible Lint
 on: [push, pull_request]
 
 jobs:
-  build:
+  lint:
 
     runs-on: ubuntu-latest
 
@@ -19,6 +19,6 @@ jobs:
            playbook_2.yml
        
         override-deps: |
-          ansible==2.9
+          ansible==2.10.10
           ansible-lint==4.2.0
         args: ""
