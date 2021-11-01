@@ -14,11 +14,10 @@ jobs:
       uses: ansible/ansible-lint-action@master
       with:
         targets: |
-           "/playbooks/*"
-           "/roles/*"
-           playbook_2.yml
+           /playbooks/*
+           /roles/*
        
         override-deps: |
-          ansible==2.10.10
+          ansible==2.10
           ansible-lint==4.2.0
         args: ""
