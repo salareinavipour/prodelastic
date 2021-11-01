@@ -1,20 +1,20 @@
 ---
 - name: Deploy master nodes
-  block: 
+  block:
     - name: Create {{ item.key }} for master nodes
       k8s:
         state: present
         definition: "{{ lookup('file', item.value ) }}"
       loop: "{{ lookup('dict', master) }}"
 - name: Deploy data nodes
-  block: 
+  block:
     - name: Create {{ item.key }} for data nodes
       k8s:
         state: present
         definition: "{{ lookup('file', item.value ) }}"
       loop: "{{ lookup('dict', data) }}"
 - name: Deploy client nodes
-  block: 
+  block:
     - name: Create {{ item.key }} for client nodes
       k8s:
         state: present
